@@ -31,6 +31,7 @@ function App() {
     // variables are still how they were at start
     if (result.state !== "none") {
       alert(`Game Over. Winning Player was ${result.winner}`);
+      restart();
     }
   }, [result]);
 
@@ -87,6 +88,11 @@ function App() {
     if (filled) {
       setResult({ winner: "Nobody", state: "Tie" });
     }
+  };
+
+  const restart = () => {
+    setBoard(["", "", "", "", "", "", "", "", ""]);
+    setPlayer("O");
   };
 
   return (
